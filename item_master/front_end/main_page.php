@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -121,14 +125,12 @@
     </head>
     <body>
         <header>
-        <?php require_once '../bussiness_logic/processing.php'; ?>
-                    <?php if(isset($_SESSION['message'])): ?>
-                    <?=$_SESSION['msg_type']?>
-                    <?php
-                    echo $_SESSION['message'];
-                    unset($_SESSION['message']);
-                    ?>
-                    <?php endif?>
+        	<?php
+        	if(isset($_SESSION['message'])) {
+        		echo $_SESSION['msg_type'];
+        		unset($_SESSION['message']);
+        	}
+        	?>
             <nav id="navbar">
                
                 <form action="../bussiness_logic/processing.php" method="post">
