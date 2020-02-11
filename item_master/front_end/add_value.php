@@ -88,7 +88,8 @@
                             <?php else: ?>
                             <button type="submit" class="login" name="save">save</button>
                             <?php endif ?>
-                    </div>        
+                    </div>
+                    <input type="hidden" name="form_action" value="save">     
                 </form>
             </div>
         </div>  
