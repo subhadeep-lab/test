@@ -20,15 +20,15 @@
                 <form action="insertcode.php" method="post">
                     <div class="form_group">
                         <label for="username">username</label>
-                        <input type="text" name="username" id="username" required>
+                        <input type="text" name="username" id="username">
                     </div>
                     <div class="form_group">
                         <label for="email">email</label>
-                        <input type="email" name="email" id="email" required>
+                        <input type="email" name="email" id="email">
                     </div>
                     <div class="form_group">
                         <label for="personnel_id">Personnel Id</label>
-                        <input type="number" name="Personnel_id" id="Personnel_id" required>
+                        <input type="number" name="Personnel_id" id="Personnel_id">
                     </div>
                     <div class="form_group">
                             <select name="select" class="option_colour" id="select" onchange="selectData()">
@@ -40,27 +40,27 @@
                     <div id="pilot">
                         <div class="form_group">
                             <label for="Pilot_id">Pilot Id</label>
-                            <input type="number" name="Pid" id="Pid" required>
+                            <input type="number" name="Pid" id="Pid">
                         </div>
                         <div class="form_group">
                             <label for="Pilot_name">Pilot Name</label>
-                            <input type="text" name="Pname" id="Pname" required>
+                            <input type="text" name="Pname" id="Pname">
                         </div>
                     </div>    
                     <div id="doctor">
                         <div class="form_group">
                             <label for="doctor_id">Doctor Id</label>
-                            <input type="number" name="Did" id="Did" required>
+                            <input type="number" name="Did" id="Did">
                         </div>
                         <div class="form_group">
                             <label for="doctor_name">Doctor Name</label>
-                            <input type="text" name="Dname" id="Dname" required>
+                            <input type="text" name="Dname" id="Dname">
                         </div>
                     </div>
                         <div class="form_group">
                             <input type="submit" name="submit" value="Submit" class="btn">
                         </div>
-                <form>
+                </form>
             </div>    
         </div>
         <script>
