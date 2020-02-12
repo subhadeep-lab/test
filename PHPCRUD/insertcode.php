@@ -102,29 +102,23 @@ if(isset($_POST['logout']))
     }
 
     //////////////////for upload_condition ///////////////////////////////////////////////
-
+$occupation_con = mysqli_connect("localhost","root","","occupation");
     if(isset($_POST['submit']))
     {
         $username = $_POST['username'];
         $email = $_POST['email'];
         $occupation = $_POST['select'];
-        $personnel_id = $_POST['Personnel_id'];
-        $pilot_id = $_POST['Pid'];
+        $phone_number = $_POST['phone_number'];
         $pilot_name = $_POST['Pname'];
-        $doctor_id = $_POST['Did'];
+        $pilot_number = $_POST['Pnumber'];
         $doctor_name = $_POST['Dname'];
-        if($occupation == "pilot")
-        {
-            $query = "INSERT INTO pilot_personnel(username,email,personnel_id,occupation,pilot_id,pilot_name) 
-            VALUES ('$username','$email','$personnel_id','$occupation','$pilot_id','$pilot_name')";
-            $do_query = mysqli_query($connection,$query);
-            header("location:main_page.php");
-        }
-        if($occupation == "doctor")
-        {
-            $query = "INSERT INTO doctor_personnel(username,email,personnel_id,occupation,doctor_id,doctor_name) 
-            VALUES ('$username','$email','$personnel_id','$occupation','$doctor_id','$doctor_name')";
-            $do_query = mysqli_query($connection,$query);
-            header("location:main_page.php");
-        }
-    }
+        $doctor_number = $_POST['Dnumber'];
+        
+      $query = "INSERT INTO personnel(username,email,phone_number) VALUES ('$username','$email','$phone_number')";
+      $run_query = mysqli_query($occupation_con,$query);
+        $querys = "INSERT INTO doctor_personnel(doctor_name,doctor_phone) VALUES ('$doctor_name','$doctor_number')";
+        $do_query = mysqli_query($occupation_con,$querys);
+        $queryss = "INSERT INTO pilot_personnel(pilot_name,pilot_phone) VALUES ('$pilot_name','$pilot_number')";
+        $do_the_query = mysqli_query($occupation_con,$queryss);
+        header("location:main_page.php");
+    }    
