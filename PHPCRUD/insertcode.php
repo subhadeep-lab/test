@@ -3,7 +3,7 @@ session_start();
     if(!isset($_SESSION['username'])){
         header("location:login.php");
     }
-    
+////////////for login////////////////////////////////////////////////////    
 $connection = mysqli_connect("localhost","root","","phpcurd");
 if(isset($_POST['login']))
 {
@@ -25,6 +25,9 @@ if(isset($_POST['login']))
                 header('location:main_page.php');
             }
 }
+////////////////////////////////////////PHP CRUD/////////////////////////////////////////////////////
+
+/////////////////////For Readrecord////////////////////
 extract($_POST);
 if(isset($_POST['readrecord']))
 {
@@ -46,18 +49,20 @@ if(isset($_POST['readrecord']))
         $number++;
     }
 }
-
+//////////////////////Add value in table//////////////////////
 if(isset($_POST['itemname']) && isset($_POST['colour']))
 {
     $query ="INSERT INTO category_details(Itemname,colour) VALUES ('$itemname','$colour')";
     $query_run = mysqli_query($connection,$query);
 }
+//////////////////////delete value into table///////////////////////////
 if(isset($_POST['deleteid']))
 {
     $userid = $_POST['deleteid'];
     $query = "DELETE FROM category_details WHERE id='$userid'";
     $query_run = mysqli_query($connection,$query);
 }
+//////////////////// for Edit///////////////////////////
 if(isset($_POST['id']) && isset($_POST['id']) !="")
 {
     $user_id=$_POST['id'];
@@ -86,6 +91,7 @@ else
     $response['status'] = 200;
     $response['message'] ="Invalid request!";
 }
+/////////////////update/////////////////////////
 if(isset($_POST['up_update_id']))
 {
     $up_update_id = $_POST['up_update_id'];
@@ -94,6 +100,9 @@ if(isset($_POST['up_update_id']))
     $query = "UPDATE category_details SET Itemname='$up_itemname',colour='$up_colour' WHERE id='$up_update_id'";
     $query_run = mysqli_query($connection,$query);
 }
+///////////////////////////crud end/////////////////
+
+////////////for logout///////////////////////
 if(isset($_POST['logout']))
     {
         session_unset();
@@ -101,7 +110,8 @@ if(isset($_POST['logout']))
         header("location:login.php");
     }
 
-    //////////////////for upload_condition ///////////////////////////////////////////////
+
+    //////////////////for Personnel...page-upload_condition.php ///////////////////////////////////////////////
 $occupation_con = mysqli_connect("localhost","root","","occupation");
     if(isset($_POST['submit']))
     {
