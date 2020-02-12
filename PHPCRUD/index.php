@@ -146,6 +146,7 @@
                             source : source,
                     },
                     success : function(data,status){
+                        $('#addCategory').modal("hide");
                         readRecords();
                     },
                 });
